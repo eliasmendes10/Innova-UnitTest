@@ -7,8 +7,6 @@ import {
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 
-import { Statement } from '../../statements/entities/Statement';
-
 @Entity('users')
 export class User {
   @PrimaryGeneratedColumn('uuid')
@@ -22,9 +20,6 @@ export class User {
 
   @Column()
   password: string;
-
-  @OneToMany(() => Statement, statement => statement.user)
-  statement: Statement[];
 
   @CreateDateColumn()
   created_at: Date;
